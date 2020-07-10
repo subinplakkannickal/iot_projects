@@ -1,0 +1,109 @@
+{% extends 'ms_base_template.html' %}
+{% load static %}
+
+{% block content%}
+
+<header class="site-navbar" role="banner">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-11 col-xl-2">
+        <h1 class="mb-0 site-logo text-white h2 mb-0">MediaServer</h1>
+      </div>
+      <div class="col-12 col-md-10 d-none d-xl-block">
+        <nav class="site-navigation position-relative text-right" role="navigation">
+          <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+            <li class="active"><a href="{% url 'ms_index' %}"><span>Home</span></a></li>
+            <li><a href="{% url 'ms_movies' %}"><span>Movies</span></a></li>
+            <li><a href="{% url 'ms_musics' %}"><span>Musics</span></a></li>
+            <li><a href="{% url 'ms_about' %}"><span>About</span></a></li>
+            <li><a href="{% url 'ms_contact' %}"><span>Contact</span></a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<div class="site-blocks-cover overlay" style="background-image: url({% static 'images/hero_1.jpg' %});" data-aos="fade" data-stellar-background-ratio="0.5">
+  <div class="container">
+    <div class="row align-items-center justify-content-center text-center">
+      <div class="col-md-10">
+        <div class="row justify-content-center mb-4">
+          <div class="col-md-10 text-center">
+            <h1 data-aos="fade-up">Find Your Fav <span class="typed-words"></span> Movies</h1>
+          </div>
+        </div>
+        <div class="form-search-wrap p-2" data-aos="fade-up" data-aos-delay="200">
+          <form method="post">
+            <div class="row align-items-center">
+              <div class="col-lg-12 col-xl-4 no-sm-border border-right">
+                <input type="text" class="form-control" placeholder="What are you looking for?">
+              </div>
+              <div class="col-lg-12 col-xl-3">
+                <div class="select-wrap">
+                  <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
+                  <select class="form-control" name="" id="">
+                    <option value="">All Language</option>
+                    <option value="">English</option>
+                    <option value="">Malayalam</option>
+                    <option value="">Hindi</option>
+                    <option value="">Tamil</option>
+                    <option value="">Others</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-12 col-xl-3">
+                <div class="select-wrap">
+                  <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
+                  <select class="form-control" name="" id="">
+                    <option value="">All Categories</option>
+                    <option value="">Action</option>
+                    <option value="">Adventure</option>
+                    <option value="">Animation</option>
+                    <option value="">Romantic</option>
+                    <option value="">Others</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-12 col-xl-2 ml-auto text-right">
+                {% csrf_token %}
+                <input type="submit" class="btn text-white btn-primary" value="Search">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+
+
+<div class="site-section" data-aos="fade">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-7 text-center border-primary">
+        <h2 class="font-weight-light text-primary">Most Viewed Movies</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-4 mb-lg-4 col-lg-4"> 
+        <div class="listing-item">
+          <div class="listing-image">
+            <img src="{% static 'images/img_1.jpg' %}" alt="Free Website Template by Free-Template.co" class="img-fluid">
+          </div>
+          <div class="listing-item-content">
+            <a href="listings-single.html" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
+            <a class="px-3 mb-3 category" href="#">Hotels</a>
+            <h2 class="mb-1"><a href="listings-single.html">Luxe Hotel</a></h2>
+            <span class="address">West Orange, New York</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
